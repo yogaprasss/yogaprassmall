@@ -1,8 +1,8 @@
+import HomeView from "@/views/Home";
+
 const Home = () => {
   return (
-    <div>
-      Home
-    </div>
+    <HomeView />
   );
 };
 

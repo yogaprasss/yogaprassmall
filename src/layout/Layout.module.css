@@ -1,0 +1,72 @@
+.navbar, .container {
+  --navbar-height: 64px;
+}
+
+.navbar {
+  background: #E4B7A0;
+  width: 100vw;
+  height: var(--navbar-height);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+}
+
+.navbar .content {
+  height: var(--navbar-height);
+  width: 100%;
+  max-width: 1280px;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.search {
+  --search-width: 256px;
+  --search-height: 36px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: var(--search-width);
+  height: var(--search-height);
+}
+
+.search input {
+  width: var(--search-width);
+  height: var(--search-height);
+  padding: 6px 36px 6px 8px;
+  font-size: 14px;
+  line-height: 20px;
+  border-radius: 8px;
+  border: 0;
+}
+
+.search button {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding-top: calc(var(--navbar-height) + 16px);
+}
+
+.container .content {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 16px;
+}
