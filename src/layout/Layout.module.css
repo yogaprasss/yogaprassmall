@@ -10,6 +10,7 @@
   display: flex;
   justify-content: center;
   padding: 0 16px;
+  z-index: 20;
 }
 
 .navbar .content {
@@ -17,6 +18,18 @@
   width: 100%;
   max-width: 1280px;
   position: relative;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding-top: calc(var(--navbar-height) + 16px);
+}
+
+.container .content {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 16px;
 }
 
 .logo {
@@ -45,6 +58,7 @@
   line-height: 20px;
   border-radius: 8px;
   border: 0;
+  outline: 0;
 }
 
 .search button {
@@ -59,14 +73,82 @@
   cursor: pointer;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  padding-top: calc(var(--navbar-height) + 16px);
+.searchMobile {
+  display: none;
 }
 
-.container .content {
-  width: 100%;
-  max-width: 1024px;
-  margin: 0 16px;
+@media screen and (max-width: 767.98px) {
+  .logo {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .search {
+    display: none;
+  }
+
+  .searchMobile {
+    position: absolute;
+    display: block;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+
+  .searchMobile button {
+    background: transparent;
+    border: 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .searchContainer {
+    position: fixed;
+    background: #E4B7A0;
+    height: 48px;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    transition: transform 0.2s;
+    padding: 8px 16px;
+  }
+
+  .hideSearchContainer .searchContainer {
+    transform: translateY(0);
+  }
+
+  .showSearchContainer .searchContainer {
+    transform: translateY(64px);
+  }
+
+  .searchContent {
+    width: 100%;
+    position: relative;
+    --search-height: 32px;
+  }
+
+  .searchContent input {
+    padding: 6px calc(var(--search-height) + 8px) 6px 8px;
+    width: 100%;
+    height: var(--search-height);
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 8px;
+    border: 0;
+    outline: 0;
+  }
+
+  .searchContent button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: var(--search-height);
+    width: var(--search-height);
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border: 0;
+  }
 }

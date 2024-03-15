@@ -1,7 +1,9 @@
-import styles from './Layout.module.css';
-import SearchIcon from '@/assets/search.svg';
-import Logo from '@/assets/logo.png';
 import Image from 'next/image';
+import styles from './Layout.module.css';
+import useLayoutHooks from './hooks';
+import SearchIcon from '@/assets/search.svg';
+import CloseIcon from '@/assets/close.svg';
+import Logo from '@/assets/logo.png';
 
 import { FC } from 'react';
 
@@ -12,6 +14,10 @@ interface LayoutProps {
 }
 
 const Layout: FC<LayoutProps> = ({ children }) => {
+  const {
+    data: { isShowSearch },
+    methods: { toggleSearch }
+  } = useLayoutHooks();
   return (
     <>
       <div className={styles.navbar}>
@@ -25,7 +31,26 @@ const Layout: FC<LayoutProps> = ({ children }) => {
               <Image src={SearchIcon} alt='search-icon' width={16} height={16} />
             </button>
           </div>
-          <div />
+          <div className={styles.searchMobile}>
+            <button type='button' onClick={toggleSearch}>
+              <Image
+                src={isShowSearch ? CloseIcon : SearchIcon}
+                alt='search-icon'
+                width={20}
+                height={20}
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className={isShowSearch ? styles.showSearchContainer : styles.hideSearchContainer}>
+        <div className={styles.searchContainer}>
+          <div className={styles.searchContent}>
+            <input placeholder='Boleh, cari apa kakak?' />
+            <button>
+              <Image src={SearchIcon} alt='search-icon' width={16} height={16} />
+            </button>
+          </div>
         </div>
       </div>
       <main className={styles.container}>
