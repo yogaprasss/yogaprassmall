@@ -14,12 +14,15 @@ const Home = () => {
     <Layout>
       {!isLoading && searchKey && (
         <>
-        <p>Hasil pencarian untuk <strong>{searchKey}</strong></p>
-        <br />
-        <button className={styles.resetButton} onClick={resetFilter}>Reset</button>
-        <br />
-        <br />
+          <p>Hasil pencarian untuk <strong>{searchKey}</strong></p>
+          <br />
+          <button className={styles.resetButton} onClick={resetFilter}>Reset</button>
+          <br />
+          <br />
         </>
+      )}
+      {(!isLoading && (!products || products.length === 0)) && (
+        <p>Data Tidak Ditemukan</p>
       )}
       <div className={styles.list}>
         {isLoading ? (
