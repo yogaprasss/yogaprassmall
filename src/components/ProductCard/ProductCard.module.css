@@ -42,6 +42,7 @@
 }
 
 .originalPrice {
+  font-size: 14px;
   color: #bbb;
   text-decoration: line-through #aaa 2px;
 }
@@ -55,4 +56,27 @@
 .price {
   font-size: 18px;
   font-weight: 700;
+}
+
+@media screen and (max-width: 767.98px) {
+  .image {
+    height: 150px;
+  }
+
+  .title {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .originalPrice {
+    font-size: 12px;
+  }
+
+  .discount {
+    font-size: 18px;
+  }
+
+  .price {
+    font-size: 16px;
+  }
 }
