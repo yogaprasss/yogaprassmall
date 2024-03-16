@@ -12,7 +12,7 @@ const Home = () => {
           title: 'yogaprassmall',
           description: 'Boleeeeh, cari apa kakak?',
           images: [
-            { url: 'https://yogaprassmall.vercel.app/logo.png' }
+            { url: 'https://yogaprassmall.vercel.app/opengraph-image.jpg' }
           ]
         }}
       />
