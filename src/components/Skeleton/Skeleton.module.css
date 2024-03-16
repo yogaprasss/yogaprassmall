@@ -1,0 +1,80 @@
+.listImage {
+  width: 100%;
+  max-width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.listText {
+  width: 100%;
+  max-width: 200px;
+  height: 20px;
+  border-radius: 8px;
+  margin-top: 8px;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.detailContainer {
+  display: flex;
+  width: 100%;
+  gap: 32px;
+}
+
+.detailThumbnail {
+  width: 100%;
+  max-width: 360px;
+  height: 360px;
+  border-radius: 8px;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.detailImagesContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 360px;
+  margin-top: 8px;
+}
+
+.detailImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.detailTextContainer {
+  width: calc(100vw - 32px);
+  max-width: 540px;
+}
+
+.detailText {
+  width: 100%;
+  max-width: 480px;
+  height: 28px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.detailDescription {
+  width: 100%;
+  height: 480px;
+  border-radius: 8px;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: #ddd;
+  }
+  100% {
+    background-color: #a8a8a8;
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .detailContainer {
+    display: block;
+  }
+}

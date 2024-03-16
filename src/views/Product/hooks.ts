@@ -5,17 +5,20 @@ import type { ProductProps } from '@/utils/types';
 
 const useDetailProductHooks = () => {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(true);
   const [product, setProduct] = useState<ProductProps | null>(null);
   const [selectedImage, setSelectedImage] = useState('');
 
   const fetchProduct = useCallback(async () => {
     if (router.query.id) {
+      setIsLoading(true);
       await fetch(`/api/product/${router.query.id}`)
         .then((res) => res.json() as unknown as ProductProps)
         .then((data) => {
           setSelectedImage(data?.images?.[0]);
           setProduct(data);
-        });
+        })
+        .finally(() => setIsLoading(false));
     }
   }, [router.query.id]);
 
@@ -39,7 +42,8 @@ const useDetailProductHooks = () => {
     data: {
       product,
       selectedImage,
-      discount
+      discount,
+      isLoading
     },
     methods: {
       onSelectImage

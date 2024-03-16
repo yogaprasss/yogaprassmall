@@ -5,7 +5,7 @@ import type { ProductProps } from '@/utils/types';
 
 const useListProductHooks = () => {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState<ProductProps[]>([]);
 
   const searchKey = useMemo(() => router.query.search, [router.query.search]);

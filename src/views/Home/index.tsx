@@ -2,6 +2,7 @@ import useListProductHooks from './hooks';
 import styles from './Home.module.css';
 import Layout from '@/layout';
 import ProductCard from '@/components/ProductCard/ProductCard';
+import Skeleton from '@/components/Skeleton/list';
 
 const Home = () => {
   const {
@@ -22,7 +23,11 @@ const Home = () => {
       )}
       <div className={styles.list}>
         {isLoading ? (
-          <div>Loading</div>
+          <>
+            {new Array(10).fill('').map((_, index) => (
+              <Skeleton key={`skeleton-${index + 1}`} />
+            ))}
+          </>
         ) : (
           <>
             {products.map((item, index) => (
