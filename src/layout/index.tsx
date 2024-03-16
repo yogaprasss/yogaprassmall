@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './Layout.module.css';
 import useLayoutHooks from './hooks';
 import SearchIcon from '@/assets/search.svg';
@@ -22,9 +23,9 @@ const Layout: FC<LayoutProps> = ({ children }) => {
     <>
       <div className={styles.navbar}>
         <div className={styles.content}>
-          <div className={styles.logo}>
+          <Link href='/' className={styles.logo}>
             <Image src={Logo} alt='logo' height={32} />
-          </div>
+          </Link>
           <div className={styles.search}>
             <input placeholder='Boleh, cari apa kakak?' />
             <button>
