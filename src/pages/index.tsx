@@ -1,4 +1,5 @@
 import HomeView from '@/views/Home';
+import Head from 'next/head';
 
 import { NextSeo } from 'next-seo';
 
@@ -8,14 +9,17 @@ const Home = () => {
       <NextSeo
         title='yogaprassmall'
         description='Boleh, cari apa kakak?'
-        openGraph={{
-          title: 'yogaprassmall',
-          description: 'Boleh, cari apa kakak?',
-          images: [
-            { url: '/logo.png' }
-          ]
-        }}
+        // openGraph={{
+        //   title: 'yogaprassmall',
+        //   description: 'Boleh, cari apa kakak?',
+        //   images: [
+        //     { url: '/logo.png' }
+        //   ]
+        // }}
       />
+      <Head>
+        <meta property='og:image' content='/logo.png' />
+      </Head>
       <HomeView />
     </>
   );
