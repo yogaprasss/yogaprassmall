@@ -1,15 +1,9 @@
 import Head from 'next/head';
 import HomeView from '@/views/Home';
 
-import { NextSeo } from 'next-seo';
-
 const Home = () => {
   return (
     <>
-      {/* <NextSeo
-        title='yogaprassmall'
-        description='Boleh, cari apa kakak?'
-      /> */}
       <Head>
         <title>yogaprassmall</title>
         <meta name='description' content='Boleh, cari apa kakak?' />
