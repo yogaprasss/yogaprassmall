@@ -8,13 +8,6 @@ const Home = () => {
       <NextSeo
         title='yogaprassmall'
         description='Boleh, cari apa kakak?'
-        openGraph={{
-          title: 'yogaprassmall',
-          description: 'Boleeeeh, cari apa kakak?',
-          images: [
-            { url: 'https://yogaprassmall.vercel.app/opengraph-image.jpg' }
-          ]
-        }}
       />
       <HomeView />
     </>
