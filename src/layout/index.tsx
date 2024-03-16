@@ -16,8 +16,8 @@ interface LayoutProps {
 
 const Layout: FC<LayoutProps> = ({ children }) => {
   const {
-    data: { isShowSearch },
-    methods: { toggleSearch }
+    data: { isShowSearch, search },
+    methods: { toggleSearch, onInputSearch, onSubmitSearch }
   } = useLayoutHooks();
   return (
     <>
@@ -26,12 +26,12 @@ const Layout: FC<LayoutProps> = ({ children }) => {
           <Link href='/' className={styles.logo}>
             <Image src={Logo} alt='logo' height={32} />
           </Link>
-          <div className={styles.search}>
-            <input placeholder='Boleh, cari apa kakak?' />
-            <button>
+          <form className={styles.search} onSubmit={onSubmitSearch}>
+            <input placeholder='Boleh, cari apa kakak?' value={search} onChange={onInputSearch} />
+            <button type='submit'>
               <Image src={SearchIcon} alt='search-icon' width={16} height={16} />
             </button>
-          </div>
+          </form>
           <div className={styles.searchMobile}>
             <button type='button' onClick={toggleSearch}>
               <Image
@@ -46,12 +46,12 @@ const Layout: FC<LayoutProps> = ({ children }) => {
       </div>
       <div className={isShowSearch ? styles.showSearchContainer : styles.hideSearchContainer}>
         <div className={styles.searchContainer}>
-          <div className={styles.searchContent}>
-            <input placeholder='Boleh, cari apa kakak?' />
-            <button>
+          <form className={styles.searchContent} onSubmit={onSubmitSearch}>
+            <input placeholder='Boleh, cari apa kakak?' value={search} onChange={onInputSearch} />
+            <button type='submit'>
               <Image src={SearchIcon} alt='search-icon' width={16} height={16} />
             </button>
-          </div>
+          </form>
         </div>
       </div>
       <main className={styles.container}>

@@ -8,10 +8,15 @@ export default async function handler(
 ) {
   const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
   const slug = '/products';
-  const query = req.query.search ? `?query=${req.query.search}` : '';
+  const searchKey = req.query.search as string;
 
-  await fetch(baseURL + slug + query)
-    .then((response) => response.json())
-    .then((data) => res.status(200).json(data))
+  await fetch(baseURL + slug)
+    .then((response) => response.json() as unknown as ProductProps[])
+    .then((data) => {
+      const filteredData = searchKey ?
+        data.filter((item) => item.title.toLowerCase().includes(searchKey?.toLowerCase())) :
+        data;
+      res.status(200).json(filteredData)
+    })
     .catch((e) => res.status(500).json(e));
 }
