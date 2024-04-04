@@ -25,6 +25,7 @@ const ProductView = () => {
               width={640}
               height={640}
               className={styles.thumbnail}
+              priority
             />
             <div className={styles.imagesContainer}>
               {product?.images?.map((img, index) => {
@@ -41,6 +42,7 @@ const ProductView = () => {
                       height={100}
                       className={styles.image}
                       onClick={onSelectImage(img)}
+                      priority
                     />
                   </div>
                 );

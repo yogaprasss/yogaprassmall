@@ -7,6 +7,7 @@ const useListProductHooks = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState<ProductProps[]>([]);
+  const [isShowNotif, setIsShowNotif] = useState(false);
 
   const searchKey = useMemo(() => router.query.search, [router.query.search]);
 
@@ -25,6 +26,19 @@ const useListProductHooks = () => {
     router.replace({ pathname: '/' });
   }, [router]);
 
+  const onAddToCart = (product: ProductProps) => {
+    if (typeof window !== 'undefined') {
+      const cart = JSON.parse(window.localStorage.getItem('getItem') ?? '[]');
+      const newCart = [...cart, product];
+      window.localStorage.setItem('cart', JSON.stringify(newCart));
+      toggleNotif();
+    }
+  };
+
+  const toggleNotif = useCallback(() => {
+    setIsShowNotif((value) => !value);
+  }, []);
+
   useEffect(() => {
     fetchProducts(searchKey as string ?? undefined);
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -34,9 +48,14 @@ const useListProductHooks = () => {
     data: {
       products,
       isLoading,
-      searchKey
+      searchKey,
+      isShowNotif
     },
-    methods: { resetFilter }
+    methods: {
+      resetFilter,
+      onAddToCart,
+      toggleNotif
+    }
   };
 };
 

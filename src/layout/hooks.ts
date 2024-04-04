@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import type { ChangeEvent, FormEvent } from 'react';
 
@@ -20,6 +20,13 @@ const useLayoutHooks = () => {
     setIsShowSearch(false);
     router.replace({ pathname: '/', query: { search } });
   }, [router, search]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const cart = JSON.parse(window.localStorage.getItem('cart') ?? '[]');
+      console.log({ cart });
+    }
+  });
 
   return {
     data: {

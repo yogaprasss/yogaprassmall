@@ -1,9 +1,16 @@
-.product {
+.container {
+  position: relative;
+  height: 369px;
   border: 1px solid rgb(225, 225, 225);
   border-radius: 8px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.product {
   color: black;
   text-decoration: none;
+  height: 369px;
+  width: 100%;
 }
 
 .image {
@@ -15,7 +22,7 @@
   object-fit: cover;
 }
 
-.container {
+.infoContainer {
   padding: 12px 16px;
   height: 128px;
   display: flex;
@@ -26,7 +33,7 @@
 }
 
 .title {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 20px;
   overflow: hidden;
   display: -webkit-box;
@@ -42,41 +49,60 @@
 }
 
 .originalPrice {
-  font-size: 14px;
+  font-size: 12px;
   color: #bbb;
   text-decoration: line-through #aaa 2px;
 }
 
 .discount {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 700;
   color: red;
 }
 
 .price {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 700;
 }
 
+.buttonAddToCart {
+  position: absolute;
+  background: #E4B7A0;
+  border: 0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  left: 12px;
+  bottom: 12px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 767.98px) {
+  .container, .product {
+    height: 299px;
+  }
+
+  .infoContainer {
+    height: 108px;
+  }
+
   .image {
     height: 150px;
   }
 
   .title {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 18px;
   }
 
   .originalPrice {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .discount {
-    font-size: 18px;
+    font-size: 11px;
   }
 
   .price {
-    font-size: 16px;
+    font-size: 12px;
   }
 }
