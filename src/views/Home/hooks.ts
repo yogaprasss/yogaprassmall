@@ -28,7 +28,7 @@ const useListProductHooks = () => {
 
   const onAddToCart = (product: ProductProps) => {
     if (typeof window !== 'undefined') {
-      const cart = JSON.parse(window.localStorage.getItem('getItem') ?? '[]');
+      const cart = JSON.parse(window.localStorage.getItem('cart') ?? '[]');
       const newCart = [...cart, product];
       window.localStorage.setItem('cart', JSON.stringify(newCart));
       toggleNotif();

@@ -26,7 +26,6 @@ const ProductCard: FC<ProductCardProps> = ({
 
   const addToCart = useCallback(() => {
     onAddToCart({ id, title, description, main_price, special_price, images });
-    return false;
   }, [id, title, description, main_price, special_price, images, onAddToCart]);
 
   return (
